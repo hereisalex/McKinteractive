@@ -41,7 +41,7 @@
   z-index: 3;
 }
 
-/* Transparent Sticky Toolbar */
+/* Animated Sticky Toolbar */
 .toolbar {
   position: sticky;
   top: 0;
@@ -56,6 +56,7 @@
   box-shadow: none;
   margin: 0;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .toolbar .glass-filter {
@@ -78,19 +79,19 @@
   z-index: 3;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5)) 
           drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-  animation: slideInFromLeft 0.3s ease-out;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.wordmark-hidden {
+  opacity: 0;
+  transform: translateX(-30px) scale(0.95);
+  pointer-events: none;
+}
+
+.wordmark-visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
 }
 
 .wordmark:hover {
@@ -105,12 +106,21 @@
   z-index: 3;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5)) 
           drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-  transition: filter 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-right {
+  transform: translateX(0) scale(1);
+}
+
+.logo-centered {
+  transform: translateX(-15px) scale(1.05);
 }
 
 .toolbar-logo:hover {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)) 
           drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+  transform: scale(1.1);
 }
 
 .app {
@@ -148,12 +158,35 @@
   width: auto;
   margin: 0;
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4));
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-wordmark:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.5));
+}
+
+.tagline {
+  margin-top: 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  line-height: 1.4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .wordmark {
@@ -385,9 +418,35 @@
     inset 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
+.footer-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .footer span {
   position: relative;
   z-index: 3;
+}
+
+.footer-blurb {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-blurb a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-blurb a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* Responsive Design */

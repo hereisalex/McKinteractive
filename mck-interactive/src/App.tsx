@@ -46,15 +46,22 @@ function App() {
         <div className="glass-filter"></div>
         <div className="glass-overlay"></div>
         <div className="glass-specular"></div>
-        {showToolbarWordmark && (
-          <img src={wordmarkImage} alt="McK‑interactive" className="wordmark" />
-        )}
-        <img src={logoImage} alt="McK‑interactive Logo" className="toolbar-logo" />
+        <img 
+          src={wordmarkImage} 
+          alt="McK‑interactive" 
+          className={`wordmark ${showToolbarWordmark ? 'wordmark-visible' : 'wordmark-hidden'}`}
+        />
+        <img 
+          src={logoImage} 
+          alt="McK‑interactive Logo" 
+          className={`toolbar-logo ${showToolbarWordmark ? 'logo-centered' : 'logo-right'}`}
+        />
       </nav>
 
       <main className="app">
         <header className="header" aria-label="Brand">
           <img src={wordmarkImage} alt="McK‑interactive" className="hero-wordmark" />
+          <p className="tagline">Design for good. Design for fun. Design for future.</p>
         </header>
 
         <section className="projects-section">
@@ -91,7 +98,12 @@ function App() {
           <div className="glass-filter"></div>
           <div className="glass-overlay"></div>
           <div className="glass-specular"></div>
-          <span>© {new Date().getFullYear()} McK‑interactive LLC. All rights reserved.</span>
+          <div className="footer-content">
+            <span>©️{new Date().getFullYear() + 1} McK Interactive LLC. All rights reserved.</span>
+            <p className="footer-blurb">
+            💚 Created with Love By Alexander McKenzie 👉🏻 <a href="https://alexthedeveloper.com" target="_blank" rel="noopener noreferrer">AlexTheDeveloper.com</a> 🩷
+            </p>
+          </div>
         </footer>
       </main>
     </>
