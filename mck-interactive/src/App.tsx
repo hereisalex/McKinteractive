@@ -99,7 +99,7 @@ function App() {
           <div className="glass-overlay"></div>
           <div className="glass-specular"></div>
           <div className="footer-content">
-            <span>©️{new Date().getFullYear() + 1} McK Interactive LLC. All rights reserved.</span>
+            <span>©️{new Date().getFullYear()} McK Interactive LLC. All rights reserved.</span>
             <p className="footer-blurb">
             💚 Created with Love By Alexander McKenzie 👉🏻 <a href="https://alexthedeveloper.com" target="_blank" rel="noopener noreferrer">AlexTheDeveloper.com</a> 🩷
             </p>
